@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "135015211619",
+    "firebase_url": "https://project-ii-39c73.firebaseio.com",
+    "project_id": "project-ii-39c73",
+    "storage_bucket": "project-ii-39c73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135015211619:android:4d67f97eca511cff",
+        "android_client_info": {
+          "package_name": "com.example.ngz.pettrackapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "135015211619-d8q6tcc8o49ljthdj31vcjjd1i4ph3sp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ngz.pettrackapplication",
+            "certificate_hash": "ec47d7f079471284bd4a49796e7cfd96c420e688"
+          }
+        },
+        {
+          "client_id": "135015211619-9s5eagjbf1jb5fv0l8r4siobt0862p8i.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "135015211619-9s5eagjbf1jb5fv0l8r4siobt0862p8i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAk-JH--lI7R7GSr283z5SlIfIE3d6_L-I"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "135015211619-9s5eagjbf1jb5fv0l8r4siobt0862p8i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

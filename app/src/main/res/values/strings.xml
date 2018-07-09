@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Pet track application</string>
+    <string name="Share_image">Share image</string>
+    <string name="View">View image</string>
+    <string name="View_Position">View Position</string>
+    <string name="Pet_Sight">Pet Sight</string>
+    <string name="Pet_Lost">Pet Lost</string>
+    <string name="choose_image">choose image</string>
+    <string name="name_pet">Pet name</string>
+    <string name="tel">Telephone Number</string>
+    <string name="email_pet">Email</string>
+    <string name="name">Name</string>
+    <string name="update_profile">Update profile</string>
+    <string name="title_activity_maps">Map</string>
+
+    <string-array name="select_pet">
+        <item>dog</item>
+        <item>cat</item>
+    </string-array>
+
+    <string-array name="select_admin">
+        <item>User</item>
+        <item>Admin</item>
+        <item>Block</item>
+    </string-array>
+
+</resources>
+
+

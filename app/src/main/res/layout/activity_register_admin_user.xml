@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img3"
+    tools:context=".Register_admin_user">
+
+    <TextView
+        android:id="@+id/textView_regis_admin_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Create User and Admin"
+        android:textColor="@color/input_login"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="333dp"
+        android:layout_height="377dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/layout"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/Create"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/editTextName_user_admin"
+            android:layout_width="250dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/input_login"
+            android:hint="Name" />
+
+        <EditText
+            android:id="@+id/editTextEm_user_admin"
+            android:layout_width="250dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="40dp"
+            android:textColorHint="@color/input_login"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Email" />
+
+        <EditText
+            android:id="@+id/editTextPass_user_admin"
+            android:layout_width="250dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="40dp"
+            android:textColorHint="@color/input_login"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Password"/>
+
+        <EditText
+            android:id="@+id/editTextConPass_user_admin"
+            android:layout_width="250dp"
+            android:layout_height="61dp"
+            android:layout_marginLeft="40dp"
+            android:textColorHint="@color/input_login"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:inputType="textPassword" />
+
+        <EditText
+            android:id="@+id/editTextTel_user_admin"
+            android:layout_width="250dp"
+            android:layout_height="61dp"
+            android:textColorHint="@color/input_login"
+            android:layout_marginLeft="40dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint="Telephone" />
+
+        <!--<EditText-->
+            <!--android:id="@+id/editTextStatus_user_admin"-->
+            <!--android:layout_width="250dp"-->
+            <!--android:layout_height="61dp"-->
+            <!--android:layout_marginLeft="40dp"-->
+            <!--android:ems="10"-->
+            <!--android:textColorHint="@color/input_login"-->
+            <!--android:inputType="textPersonName"-->
+            <!--android:hint="Status" />-->
+        <RadioGroup
+            android:id="@+id/radioGroup_Status_user_admin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioUser"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="45dp"
+                android:layout_weight="1"
+                android:text="User" />
+
+            <RadioButton
+                android:id="@+id/radioAdmin"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Admin" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/Create"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Create"
+        android:background="@drawable/btn_login1"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</android.support.constraint.ConstraintLayout>
