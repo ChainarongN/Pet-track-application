@@ -1,0 +1,4 @@
+RX = D1
+TX = D2
+VCC = 3V3
+GND = GND
