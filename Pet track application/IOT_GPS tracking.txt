@@ -1,0 +1,134 @@
+#include <ESP8266WiFi.h>
+#include <FirebaseArduino.h>
+
+#define FIREBASE_HOST "project-ii-39c73.firebaseio.com"
+#define FIREBASE_KEY "HtvLugJ54Y9UDRrwMZLXzOeJMfD9vObkNO71618j"
+//from old data
+#include <TinyGPS++.h>
+#include "ThingSpeak.h"
+#include <SoftwareSerial.h>
+static const int RXPin = 4, TXPin = 5;
+static const uint32_t GPSBaud = 9600;
+unsigned long myChannelNumber = 520293;
+const char * myWriteAPIKey = "NB6W3N5FHCMBZIP3";
+// The TinyGPS++ object
+TinyGPSPlus gps;
+WiFiClient  client;
+// The serial connection to the GPS device
+SoftwareSerial ss(RXPin, TXPin);
+
+//const char* ssid     = "poopu";
+//const char* password = "fah121212";
+
+const char* ssid     = "NGz";
+const char* password = "123456789";
+
+
+
+void setup() {
+  Serial.begin(115200);
+  //from old data
+  ss.begin(GPSBaud);
+  Serial.println(F("DeviceExample.ino"));
+  Serial.println(F("A simple demonstration of TinyGPS++ with an attached GPS module"));
+  Serial.print(F("Testing TinyGPS++ library v. ")); Serial.println(TinyGPSPlus::libraryVersion());
+  Serial.println();
+  Serial.print("Connecting to ");
+
+  //////******
+  Firebase.begin(FIREBASE_HOST, FIREBASE_KEY);
+  /////*******
+
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  Serial.println("WiFi connected");
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP());
+  Serial.print("Netmask: ");
+  Serial.println(WiFi.subnetMask());
+  Serial.print("Gateway: ");
+  Serial.println(WiFi.gatewayIP());
+  //ThingSpeak.begin(client);
+  
+
+}
+void(*resetFunc)(void)=0;
+
+void loop() {
+  while (ss.available() > 0)
+    if (gps.encode(ss.read()))
+      displayInfo();
+
+  if (millis() > 5000 && gps.charsProcessed() < 10)
+  {
+    Serial.println(F("No GPS detected: check wiring."));
+    while (true);
+  }
+}
+void displayInfo()
+{
+  //////////*****Firebase************************
+  const String Name = "/nueng";
+  const String Name2 = "nueng";
+  const String number = "/one";
+  const String iot = "Iot";
+  /////////*******Firebase***********************
+  if (gps.location.isValid())
+  {
+    float latitude = (gps.location.lat());
+    float longitude = (gps.location.lng());
+
+    String latbuf;
+    latbuf += (String(latitude, 10));
+
+    String lonbuf;
+    lonbuf += (String(longitude, 10));
+    Serial.println(lonbuf);
+    Serial.println(latbuf);
+
+    ///////////****Firebase**********************************
+    Firebase.setString(iot + Name + number + "/_lat", latbuf);
+    Firebase.setString(iot + Name + number + "/_long", lonbuf);
+    Firebase.setString(iot + Name + number + "/_username", Name2);
+        if (Firebase.failed()) { //ปัญหา
+          Serial.print("failed " + Name2);
+          resetFunc();
+        }
+    /////////*******Firebase*********************************
+
+    //    ThingSpeak.setField(1, latbuf);
+    //    ThingSpeak.setField(2, lonbuf);
+    //    ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey);
+    delay(1000);
+  }
+  else
+  {
+    Serial.print(F("INVALID location"));
+   
+  }
+
+  if (gps.date.isValid())
+  {
+    Firebase.setString(iot + Name + number + "/_date", String(gps.date.day()) + "/" + String(gps.date.month()) + "/" + String(gps.date.year()));
+  }
+  else
+  {
+    Serial.print(F("INVALID date"));
+  }
+
+  if (gps.time.isValid())
+  {    
+    Firebase.setString(iot + Name + number + "/_time", String(gps.time.hour() + 7) + ":" + String(gps.time.minute()));
+  }
+  else
+  {
+    Serial.print(F("INVALID time"));
+  }
+
+  Serial.println();
+}
